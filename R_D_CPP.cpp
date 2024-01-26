@@ -15,6 +15,10 @@ int main()
 	SetConsoleCP(1251);
 	SetConsoleOutputCP(1251);
 
+	Homework14();
+	system("pause");
+	return 0;
+
 	cout <<	"Домашнє завдання 13 -- 1\n"
 			"Домашнє завдання 14 -- 2\n" << endl;
 
