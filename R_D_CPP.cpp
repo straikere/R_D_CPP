@@ -16,6 +16,7 @@ int main()
 	SetConsoleOutputCP(1251);
 
 	Homework14();
+
 	system("pause");
 	return 0;
 
