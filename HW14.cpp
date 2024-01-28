@@ -27,6 +27,7 @@ void MinDamage(const vector<int>& arr);
 void Heal(const vector<int>& arr);
 void AllDamageOrHeal(const vector<int>& arr, bool isDamage);
 void NonDamageTarget(const vector<int>& arr);
+void Menu(const vector<int>& HODArray);
 
 
 void Homework14() {
@@ -37,35 +38,55 @@ void Homework14() {
 
     if (!ArrayIsValid(HealOrDmgArray)) return;
 
-    int switch_on;
-    switch (switch_on)
-    {
-    case 1:
-        break;
-    case 2:
-        break;
-    case 3:
-        break;
-
-    default:
-        break;
-    }
-    MaxDamage(HealOrDmgArray);
-
-    //MinDamage(HealOrDmgArray);
-
-    //Heal(HealOrDmgArray);
-
-
-
+    Menu(HealOrDmgArray);
     
-
-
 }
 
-void Menu() {
-
+void Menu(const vector<int>& HODArray)
+{
+    int switch_on;
+    cout << "Режим статистики, виберіть варіант\n"
+        "Під якими номерами нам завдали найбільшу шкоду -- 1\n"
+        "Під якими номерами нам завдали нам найменше шкоди -- 2\n"
+        "Під якими номерами нам завдали лікування -- 3\n"
+        "Скільки всього нам нанесли шкоди / лікування -- 4\n"
+        "Чи є хтось, хто нічого нам не зробив -- 5\n"
+        "Вихід -- 0\n"
+        "Ваш варіант: ";
+    for (bool i = true; i == true;)
+    {
+        cin >> switch_on;
+        cout << endl;
+        switch (switch_on)
+        {
+        case 1:
+            MaxDamage(HODArray);
+            break;
+        case 2:
+            MinDamage(HODArray);
+            break;
+        case 3:
+            Heal(HODArray);
+            break;
+        case 4:
+            AllDamageOrHeal(HODArray,true);
+            break;
+        case 5:
+            NonDamageTarget(HODArray);
+            break;
+        case 0:
+            i = false;
+            break;
+        default:
+            cout << "Ввід не вірний, повторіть ваш ввід\n";
+            break;
+        }
+        cout << endl;
+        cout << "Ваш варіант: ";
+    }
 }
+
+
 
 void FillArrayHealOrDmg(vector<int> &arr) 
 {
@@ -111,6 +132,7 @@ bool ArrayIsValid(const vector<int>& arr)
 void MaxDamage(const vector<int>& arr) 
 {
     int MaxDmg = 0;
+
     for (int i = 0; i < arr.size(); i++) 
     {
         if (arr[i]>MaxDmg)
@@ -118,13 +140,16 @@ void MaxDamage(const vector<int>& arr)
             MaxDmg = arr[i];
         }
     }
+
     if (MaxDmg == 0)
     {
         cout << "Шкода відсутня\n\n";
         return;
     }
+
     cout << "Максимальна шкода: " << MaxDmg << endl;
     cout << "Номер в послідовності: ";
+
     for (int i = 0; i < arr.size(); i++)
     {
         if (arr[i] == MaxDmg)
@@ -163,7 +188,18 @@ void MinDamage(const vector<int>& arr)
         return;
     }
 
-    cout << "Мінімальна шкода " << MinDmg << endl << endl;
+    cout << "Мінімальна шкода " << MinDmg << endl;
+    cout << "Номер в послідовності: ";
+
+    for (int i = 0; i < arr.size(); i++)
+    {
+        if (arr[i] == MinDmg)
+        {
+            cout << i + 1 << " ";
+        }
+    }
+
+    cout << endl;
 }
 
 
@@ -182,5 +218,26 @@ void AllDamageOrHeal(const vector<int>& arr, bool isDamage = true)
 
 void NonDamageTarget(const vector<int>& arr) 
 {
+    
+    cout << "";
+    cout << "Нам не наніс шкоду номер: ";
+    int i = 0;
+    do
+    {
+        if (arr[i] == 0) {
+            cout << "Нам не наніс шкоду номер: ";
+        }
+        else if ()
+        {
 
+        }
+    } while (true);
+
+    for (int i = 0; i < arr.size(); i++)
+    {
+        if (arr[i] == 0)
+        {
+            cout << i + 1 << " ";
+        }
+    }
 }
