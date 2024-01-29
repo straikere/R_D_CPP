@@ -29,15 +29,15 @@ void AllDamageOrHeal(const vector<int>& arr, bool isDamage);
 void NonDamageTarget(const vector<int>& arr);
 void Menu(const vector<int>& HODArray);
 
-
+//Функція Домашнього Завдання 14
 void Homework14() {
-    
+    //об'являємо масив типа вектор
     vector<int> HealOrDmgArray;
-
+    //викликаємо функцію заповнення масиву числами які вводить користувач
     FillArrayHealOrDmg(HealOrDmgArray);
-
+    //перевірка на валідність масиву
     if (!ArrayIsValid(HealOrDmgArray)) return;
-
+    //меню функцій
     Menu(HealOrDmgArray);
     
 }
@@ -70,8 +70,24 @@ void Menu(const vector<int>& HODArray)
             Heal(HODArray);
             break;
         case 4:
-            AllDamageOrHeal(HODArray,true);
-            AllDamageOrHeal(HODArray, false);
+            cout << "Скільки всього нам нанесли шкоди -- 1\n"
+                    "Скільки всього нам нанесли лікування -- 2\n"
+                    "Введіть шкода чи лікування: ";
+            cin >> switch_on;
+            cout << endl;
+            switch (switch_on)
+            {
+            case 1:
+                AllDamageOrHeal(HODArray, true);
+                break;
+            case 2:
+                AllDamageOrHeal(HODArray, false);
+                break;
+            default:
+                cout << "Ввід не вірний, повернення в меню\n";
+                break;
+            }
+
             break;
         case 5:
             NonDamageTarget(HODArray);
@@ -92,27 +108,32 @@ void Menu(const vector<int>& HODArray)
 
 void FillArrayHealOrDmg(vector<int> &arr) 
 {
+    //"чистим" сin
+    std::cin.ignore(32767, '\n');
     int number;
     string str;
     cout << "Введіть шкоду (додатні числа) або відновлення (від'ємні числа) здоров'я\n"
             "Для виходу з режиму вводу натисніть Enter або введіть букву\n";
     for (int i = 0;; i++)
     {
+        //данні з вводу записуєм в str 
         getline(cin, str, '\n');
+        //якщо строка пуста
         if(str.empty())
         {
             cout << "Ви вийшли з режиму вводу\n\n";
-            //cin.clear();
-            //cin.ignore(32767, '\n');
             return;
         }
+        //переводимо строку в int
         try {
             number = stoi(str);
         }
         catch (exception& e) {
+            //якщо зловили помилку виходемо з вводу
             cout << "Ви вийшли з режиму вводу\n\n";
             return;
         }
+        //якщо все ок, то ресайзем массив і присваюємо значення в нього по індексу
         arr.resize(i + 1);
         arr[i] = number;
     }
@@ -122,6 +143,7 @@ void FillArrayHealOrDmg(vector<int> &arr)
 bool ArrayIsValid(const vector<int>& arr)
 {
     cout << "Запущена перевірка массива на валідність!\n\n";
+    //якщо він пустий то нам робити з ним немає чого
     if (arr.empty())
     {
         cout << "Помилка! Данні відсутні данний массив пустий\n\n";
@@ -135,7 +157,7 @@ bool ArrayIsValid(const vector<int>& arr)
 void MaxDamage(const vector<int>& arr) 
 {
     int MaxDmg = 0;
-
+    //шукаємо найбільше число і пишемо його в MaxDmg
     for (int i = 0; i < arr.size(); i++) 
     {
         if (arr[i]>MaxDmg)
@@ -143,16 +165,17 @@ void MaxDamage(const vector<int>& arr)
             MaxDmg = arr[i];
         }
     }
-
+    //якщо все таки не знайшли або це нуль
     if (MaxDmg == 0)
     {
         cout << "Шкода відсутня\n";
         return;
     }
-
+    //якщо все ок
     cout << "Максимальна шкода: " << MaxDmg << endl;
     cout << "Номер в послідовності: ";
 
+    //якщо однакових чисел з найбільшим дамагом більше в послідовності чим одне
     for (int i = 0; i < arr.size(); i++)
     {
         if (arr[i] == MaxDmg)
@@ -169,7 +192,7 @@ void MinDamage(const vector<int>& arr)
 {
     int MinDmg = 0;
     int i = 0;
-
+    // шукаємо перше число яке більше нуля та записуємо його в MinDmg
     for (; i < arr.size(); i++)
     {
         if (arr[i] > 0)
@@ -178,7 +201,7 @@ void MinDamage(const vector<int>& arr)
             break;
         }
     }
-
+    // продовжуємо з того моменту як знайшли найменше число і якщо далі є число яке меньше за MinDmg і більше нуля, то ставемо його в MinDmg
     for (; i < arr.size(); i++)
     {
         if (arr[i] > 0 && arr[i] < MinDmg)
@@ -186,16 +209,16 @@ void MinDamage(const vector<int>& arr)
             MinDmg = arr[i];
         }
     }
-
+    // Якщо в масиві немає мінімальної шкоди
     if (MinDmg == 0)
     {
         cout << "Шкода відсутня\n";
         return;
     }
-
+    // якщо є мінімальна шкода
     cout << "Мінімальна шкода " << MinDmg << endl;
     cout << "Номер в послідовності: ";
-
+    //якщо однакових чисел з найменшим дамагом більше в послідовності чим одне
     for (int i = 0; i < arr.size(); i++)
     {
         if (arr[i] == MinDmg)
@@ -211,11 +234,12 @@ void MinDamage(const vector<int>& arr)
 void Heal(const vector<int>& arr) 
 {
     bool bDoOnce = true;
-
+    
     for (int i = 0; i < arr.size(); i++)
     {
         if (arr[i] < 0)
         {
+            //якщо хоч раз нас хтось похіляв
             if (bDoOnce)
             {
                 cout << "Нас вилікували під номером: ";
@@ -224,6 +248,7 @@ void Heal(const vector<int>& arr)
             cout << i + 1 << " ";
         }
     }
+    // якщо нас таки не похіляли ніразу
     if (bDoOnce)
     {
         cout << "В послідовності немає того хто відновив нам здоров'я";
@@ -236,8 +261,10 @@ void Heal(const vector<int>& arr)
 void AllDamageOrHeal(const vector<int>& arr, bool isDamage = true) 
 {
     int sum = 0;
+    // або дамаг або хіл
     if (isDamage)
     {
+        // в тупу перебираємо масив і сумуємо значення які більше 0
         for (auto number : arr)
         {
             if (number > 0)
@@ -245,6 +272,7 @@ void AllDamageOrHeal(const vector<int>& arr, bool isDamage = true)
                 sum += number;
             }
         }
+        // якщо нічого не знайшли
         if (sum == 0)
         {
             cout << "В послідовності немає шкоди!\n";
@@ -255,6 +283,7 @@ void AllDamageOrHeal(const vector<int>& arr, bool isDamage = true)
         }
     }
     else {
+        // те саме що вище але навпаки
         for (auto number : arr)
         {
             if (number < 0)
@@ -278,7 +307,7 @@ void NonDamageTarget(const vector<int>& arr)
 {
 
     bool bDoOnce = true;
-
+    // шукаємо нулі в масиві
     for (int i = 0; i < arr.size(); i++)
     {
         if (arr[i] == 0)
@@ -292,6 +321,7 @@ void NonDamageTarget(const vector<int>& arr)
             cout << i + 1 << " ";
         }
     }
+    // якщо немає ніодного
     if (bDoOnce)
     {
         cout << "В послідовності немає того хто наніс нам 0 шкоди";
