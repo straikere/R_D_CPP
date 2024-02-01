@@ -130,7 +130,11 @@
   <ItemGroup>
     <ClCompile Include="HW13.cpp" />
     <ClCompile Include="HW14.cpp" />
+    <ClCompile Include="HW15.cpp" />
     <ClCompile Include="R_D_CPP.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="HW15.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
