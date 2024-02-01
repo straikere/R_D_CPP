@@ -44,6 +44,8 @@ void Homework15() {
 	// equal
 	PrintCharacter((*chArrPtr).data());
 	PrintCharacter((*chArrPtr).data() + 1);
+	// equal
+	PrintCharacter(&(*chArrPtr)[0]);
 
 	//cout << endl;
 
