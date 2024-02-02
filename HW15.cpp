@@ -20,63 +20,41 @@
 #include <iostream>
 #include <vector>
 #include <random>
+#include <map>
+#include <string>
 #include "HW15.h"
 
-static std::vector<chClass> ALL_CHARACTER_CLASSES({chClass::Archer,chClass::Healer, chClass::Mage, chClass::Warrior });
 static std::random_device rd;
 
-using namespace std;
+using std::cout, std::endl, std::vector;
 
 void Homework15() {
 
-	// створюємо вектор структур на heap 
-	vector<CharacterStruct>* chArrPtr = new vector<CharacterStruct>;
+	// створюємо вектор 
+	vector<CharacterStruct> CharacterArray;
+
 	// заповнюємо вектор 10 пустими персонажами
-	FillVectorCharacterStruct(*chArrPtr, 10);
+	FillVectorCharacterStruct(CharacterArray, 10);
+
 	// заповнюємо пусті структури в векторі рандомними значеннями
-	FillVectorRandomCharacter(*chArrPtr);
+	FillVectorRandomCharacter(CharacterArray);
+	cout << endl;
+
+	// найсильніший
+	cout << "Найсильніший персонаж під ID: " << StrongestCharacterInArray(CharacterArray) << '\n';
+
+	//Виводить в консоль найсильнішого в кожному класі
+	ShowStrongestCharactersInUnicClass(CharacterArray);
+
 	// виводимо всіх наших персонажів
-	ShowAllCharactersInVector(*chArrPtr);
-
-	// ???
-	PrintCharacter(chArrPtr->data());
-	PrintCharacter(chArrPtr->data()+1);
-	// equal
-	PrintCharacter((*chArrPtr).data());
-	PrintCharacter((*chArrPtr).data() + 1);
-	// equal
-	PrintCharacter(&(*chArrPtr)[0]);
-
-	//cout << endl;
-
-	delete chArrPtr;
-	chArrPtr = nullptr;
-
-	//приклади роботи з структурою
-	
-	CharacterStruct gay;
-	gay.id = 1;
-	gay.ch_class = Archer;
-	gay.melee = 4;
-	gay.ranged = 11;
-	PrintCharacter(&gay);
-	
-	CharacterStruct* yayPtr = new CharacterStruct();
-	yayPtr->id = 500;
-	yayPtr->ch_class = Archer;
-	yayPtr->melee = 200;
-	yayPtr->ranged = 32;
-
-	PrintCharacter(yayPtr);
-
-	delete yayPtr;
-	yayPtr = nullptr;
-	
+	ShowAllCharactersInVector(CharacterArray);
 }
 
 //	Повертає випадковий класс
 chClass randClass() {
-	std::uniform_int_distribution<size_t> dis(1, ALL_CHARACTER_CLASSES.size() - 1);
+	std::vector<chClass> ALL_CHARACTER_CLASSES({ chClass::Archer,chClass::Healer, chClass::Mage, chClass::Warrior });
+
+	std::uniform_int_distribution<size_t> dis(0, ALL_CHARACTER_CLASSES.size() - 1);
 	chClass randomClass = ALL_CHARACTER_CLASSES[dis(rd)];
 	return randomClass;
 }
@@ -105,71 +83,111 @@ void FillVectorRandomCharacter(std::vector<CharacterStruct>& vec) {
 }
 
 //	Виводить в консоль всіх персонажей в середені вектора
-void ShowAllCharactersInVector(std::vector<CharacterStruct>& vec) {
+void ShowAllCharactersInVector(const std::vector<CharacterStruct>& vec) {
 
 	for (int i = 0; i < vec.size(); i++)
 	{
-		//
+		PrintCharacter(vec[i]);
 	}
 
 }
 
-//	Виводить в консоль інформацію про персонажа
-void PrintCharacter(CharacterStruct* character) {
+//	Виводить ID сильнішого персонажу
+int StrongestCharacterInArray(const vector<CharacterStruct>& vec) {
 
-	std::cout << "ID: " << character->id << std::endl;
-	std::cout << "Class: " << character->ch_class << std::endl;
-	std::cout << "Melee: " << character->melee << std::endl;
-	std::cout << "Ranged: " << character->ranged << std::endl;
-	std::cout << "Power sum: " << character->ranged + character->melee << std::endl;
+	float maxPower = 0;
+	int id;
+
+	for (int i = 0; i < vec.size(); i++)
+	{
+		if ((vec[i].melee + vec[i].ranged)>maxPower)
+		{
+			id = vec[i].id;
+			maxPower = vec[i].melee + vec[i].ranged;
+		}
+	}
+	if (maxPower==0) return -1;
+
+	return id;
+}
+
+//	Виводить в консоль найсильнішого в кожному класі
+void ShowStrongestCharactersInUnicClass(const vector<CharacterStruct>& vec) {
+
+	std::map<chClass, int> classMap;
+	float dmg[chClass::MAX - 1]{};
+
+	for (int i = 1; i < chClass::MAX; i++)
+	{
+		classMap.insert({static_cast<chClass>(i), -1});
+	}
+
+	for (int i = 0; i < vec.size(); i++)
+	{
+		switch (vec[i].ch_class)
+		{
+		case Mage:
+			if ((vec[i].melee + vec[i].ranged) > dmg[0])
+			{
+				dmg[0] = vec[i].melee + vec[i].ranged;
+				classMap[vec[i].ch_class] = vec[i].id;
+			}
+			break;
+		case Archer:
+			if ((vec[i].melee + vec[i].ranged) > dmg[1])
+			{
+				dmg[1] = vec[i].melee + vec[i].ranged;
+				classMap[vec[i].ch_class] = vec[i].id;
+			}
+			break;
+		case Healer:
+			if ((vec[i].melee + vec[i].ranged) > dmg[2])
+			{
+				dmg[2] = vec[i].melee + vec[i].ranged;
+				classMap[vec[i].ch_class] = vec[i].id;
+			}
+			break;
+		case Warrior:
+			if ((vec[i].melee + vec[i].ranged) > dmg[3])
+			{
+				dmg[3] = vec[i].melee + vec[i].ranged;
+				classMap[vec[i].ch_class] = vec[i].id;
+			}
+			break;
+		}
+
+
+	}
+	cout << "\n--Топ найсильніших в своєму классі--\n \n";
+	for (auto& pair : classMap)
+	{
+		if (pair.second >= 0)
+		{
+			PrintCharacter(vec[pair.second]);
+		}
+	}
+	cout << "------------------------------------\n \n";
+}
+
+
+//	Виводить в консоль інформацію про персонажа
+void PrintCharacter(const CharacterStruct& character) {
+	std::map<chClass, std::string> enumMap = { {Archer, "Archer"},{Healer, "Healer"}, {Mage, "Mage"}, { Warrior, "Warrior"} };
+	std::string str;
+	try
+	{
+		str = enumMap.at(character.ch_class);
+	}
+	catch (const std::exception&)
+	{
+		cout << "Помилкa, функція не може бути оброблена. Для детальної інформації звернітся в ваш відділ підтримки\n";
+		return;
+	}
+	std::cout << "ID: " << character.id << std::endl;
+	std::cout << "Class: " << str << std::endl;
+	std::cout << "Melee: " << character.melee << std::endl;
+	std::cout << "Ranged: " << character.ranged << std::endl;
+	std::cout << "Power sum: " << character.ranged + character.melee << std::endl;
 	std::cout << endl;
 
 }
-
-
-
-
-
-
-
-
-CharacterStruct FillCharacter(CharacterStruct& character) {
-
-	std::uniform_int_distribution<int> distrib(1, 9);
-	for (int i = 0; i < 10; i++)
-	{
-		std::cout << distrib(rd) << std::endl;
-	}
-	return character;
-}
-
-void FillCharacterTest() {
-
-	std::uniform_int_distribution<int> distrib(1, 9);
-
-	for (int i = 0; i < 10; i++)
-	{
-		std::cout << distrib(rd) << std::endl;	
-	}
-}
-
-void FillCharacterTestFloat() {
-
-	std::uniform_real_distribution<float> distrib(0.0f, 1.0f);
-
-	for (int i = 0; i < 10; i++)
-	{
-		std::cout << distrib(rd) << std::endl;
-	}
-}
-
-
-//characterArray.push_back(CharacterStruct());
-//characterArray.push_back(CharacterStruct());
-//characterArray[0].id = 123;
-//characterArray[1].id = 124;
-
-//stack !overflow 
-//int* a = new int[500000000];
-//delete[] a;
-//a = nullptr;

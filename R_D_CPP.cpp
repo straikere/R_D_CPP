@@ -8,6 +8,7 @@ using namespace std;
 void Homework13();
 void Homework14();
 void Homework15();
+void Homework16();
 
 int switch_on;
 
@@ -18,7 +19,8 @@ int main()
 
 	cout <<	"Домашнє завдання 13 -- 1\n"
 			"Домашнє завдання 14 -- 2\n"
-			"Домашнє завдання 15 -- 3\n" << endl;
+			"Домашнє завдання 15 -- 3\n"
+			"Домашнє завдання 16 -- 4\n" << endl;
 
 	cout << "Виберіть домашє завдання: ";
 	cin >> switch_on;
@@ -32,6 +34,9 @@ int main()
 		break;
 	case 3:
 		Homework15();
+		break;
+	case 4:
+		Homework16();
 		break;
 	default:
 		break;

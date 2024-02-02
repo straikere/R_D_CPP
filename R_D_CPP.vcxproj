@@ -131,6 +131,7 @@
     <ClCompile Include="HW13.cpp" />
     <ClCompile Include="HW14.cpp" />
     <ClCompile Include="HW15.cpp" />
+    <ClCompile Include="HW16.cpp" />
     <ClCompile Include="R_D_CPP.cpp" />
   </ItemGroup>
   <ItemGroup>

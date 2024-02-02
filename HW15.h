@@ -7,7 +7,8 @@ enum chClass
 	Mage = 1,
 	Archer,
 	Healer,
-	Warrior 
+	Warrior,
+	MAX
 };
 
 struct CharacterStruct
@@ -27,20 +28,29 @@ void FillVectorCharacterStruct(std::vector<CharacterStruct>& vec, int quantity);
 //	@return повертає випадковий класс
 chClass randClass();
 
-//
+//	Заповнює вектор рандомними значеннями для персонажей
 void FillVectorRandomCharacter(std::vector<CharacterStruct>& vec);
 
-//	Виводить в консоль всіх персонажей в середені вектора
-void ShowAllCharactersInVector(std::vector<CharacterStruct>& vec);
+/*	Виводить в консоль всіх персонажей в середені вектора
+*	@param vec вектор структур <CharacterStruct>
+*/
+void ShowAllCharactersInVector(const std::vector<CharacterStruct>& vec);
 
-//	Виводить в консоль інформацію про персонажа
-void PrintCharacter(CharacterStruct* character);
+/*	Виводить ID сильнішого персонажу
+*	@param vec вектор структур <CharacterStruct> в якому шукати
+*	@return int ID персонажу, якщо такого немає то -1
+*/	
+int StrongestCharacterInArray(const std::vector<CharacterStruct>& vec);
 
+/*	Виводить в консоль найсильнішого в кожному класі
+* 	@param vec вектор структур <CharacterStruct> в якому шукати
+*/
+void ShowStrongestCharactersInUnicClass(const std::vector<CharacterStruct>& vec);
 
-
-void FillCharacterTest();
-
-void FillCharacterTestFloat();
+/*	Виводить в консоль інформацію про персонажа
+*	@param character приймає структуру <CharacterStruct> персонажа
+*/
+void PrintCharacter(const CharacterStruct& character);
 
 
 
