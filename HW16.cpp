@@ -28,8 +28,21 @@
 //	
 //
 
+#include"HW16.h"
+
+
 
 void Homework16() {
+	
+	map<string, vector<int>> a;
 
+
+}
+
+int GetPlayerCount(const string& ClanName) {
+
+}
+
+int ClanFight(const string& FirstClanName, const string& SecondClanName) {
 
 }

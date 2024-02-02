@@ -27,9 +27,15 @@
     <ClCompile Include="HW15.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
+    <ClCompile Include="HW16.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="HW15.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="HW16.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>
