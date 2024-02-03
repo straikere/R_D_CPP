@@ -2,17 +2,20 @@
 #include<string>
 #include<map>
 #include<vector>
-
-struct MyStruct
-{
-	string clanName;
-	string name;
-	float power;
-
-};
+#include<iostream>
 
 using std::string, std::map, std::vector;
+
+struct chStruct
+{
+	string name;
+	float power;
+};
 
 int GetPlayerCount(const string& ClanName);
 
 int ClanFight(const string& FirstClanName, const string& SecondClanName);
+
+void InputMenu();
+
+void AddPlayerToTeam();
