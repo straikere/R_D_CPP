@@ -17,11 +17,7 @@
 //		- Розробити функцію, яка поверне найсильнішого в кожному класі.
 // 
 //	
-#include <iostream>
-#include <vector>
-#include <random>
-#include <map>
-#include <string>
+
 #include "HW15.h"
 
 static std::random_device rd;
