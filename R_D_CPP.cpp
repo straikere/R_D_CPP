@@ -7,6 +7,8 @@ using std::cout, std::cin;
 
 void Homework13();
 void Homework14();
+void Homework15();
+void Homework16();
 
 int switch_on;
 
@@ -29,6 +31,12 @@ int main()
 		break;
 	case 2 :
 		Homework14();
+		break;
+	case 3:
+		Homework15();
+		break;
+	case 4:
+		Homework16();
 		break;
 	default:
 		break;
