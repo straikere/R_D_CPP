@@ -17,45 +17,42 @@
 //		- Розробити функцію, яка поверне найсильнішого в кожному класі.
 // 
 //	
-
+#include <random>
+#include <map>
+#include <string>
+#include <iostream> 
 #include "HW15.h"
 
 static std::random_device rd;
 
-using std::cout, std::endl, std::vector;
+using std::cout;
 
 void Homework15() {
 
-	// створюємо вектор 
 	vector<CharacterStruct> CharacterArray;
 
-	// заповнюємо вектор 10 пустими персонажами
 	FillVectorCharacterStruct(CharacterArray, 10);
 
-	// заповнюємо пусті структури в векторі рандомними значеннями
 	FillVectorRandomCharacter(CharacterArray);
-	cout << endl;
+	cout << '\n';
 
-	// найсильніший
 	cout << "Найсильніший персонаж під ID: " << StrongestCharacterInArray(CharacterArray) << '\n';
 
-	//Виводить в консоль найсильнішого в кожному класі
 	ShowStrongestCharactersInUnicClass(CharacterArray);
 
-	// виводимо всіх наших персонажів
 	ShowAllCharactersInVector(CharacterArray);
 }
 
-//	Повертає випадковий класс
 chClass randClass() {
 	std::vector<chClass> ALL_CHARACTER_CLASSES({ chClass::Archer,chClass::Healer, chClass::Mage, chClass::Warrior });
 
 	std::uniform_int_distribution<size_t> dis(0, ALL_CHARACTER_CLASSES.size() - 1);
+
 	chClass randomClass = ALL_CHARACTER_CLASSES[dis(rd)];
+
 	return randomClass;
 }
 
-//	Заповнює пустий вектор пустими структурами персонажей
 void FillVectorCharacterStruct(std::vector<CharacterStruct>& vec, int quantity) {
 
 	for (int i = 0; i < quantity; i++)
@@ -64,7 +61,6 @@ void FillVectorCharacterStruct(std::vector<CharacterStruct>& vec, int quantity) 
 	}
 }
 
-//	Заповнює вектор рандомними значеннями для персонажей
 void FillVectorRandomCharacter(std::vector<CharacterStruct>& vec) {
 
 	std::uniform_real_distribution<float> distFloat(1.0f, 10.0f);
@@ -78,7 +74,6 @@ void FillVectorRandomCharacter(std::vector<CharacterStruct>& vec) {
 	}
 }
 
-//	Виводить в консоль всіх персонажей в середені вектора
 void ShowAllCharactersInVector(const std::vector<CharacterStruct>& vec) {
 
 	for (int i = 0; i < vec.size(); i++)
@@ -88,7 +83,6 @@ void ShowAllCharactersInVector(const std::vector<CharacterStruct>& vec) {
 
 }
 
-//	Виводить ID сильнішого персонажу
 int StrongestCharacterInArray(const vector<CharacterStruct>& vec) {
 
 	float maxPower = 0;
@@ -107,10 +101,10 @@ int StrongestCharacterInArray(const vector<CharacterStruct>& vec) {
 	return id;
 }
 
-//	Виводить в консоль найсильнішого в кожному класі
 void ShowStrongestCharactersInUnicClass(const vector<CharacterStruct>& vec) {
 
 	std::map<chClass, int> classMap;
+
 	float dmg[chClass::MAX - 1]{};
 
 	for (int i = 1; i < chClass::MAX; i++)
@@ -165,8 +159,6 @@ void ShowStrongestCharactersInUnicClass(const vector<CharacterStruct>& vec) {
 	cout << "------------------------------------\n \n";
 }
 
-
-//	Виводить в консоль інформацію про персонажа
 void PrintCharacter(const CharacterStruct& character) {
 	std::map<chClass, std::string> enumMap = { {Archer, "Archer"},{Healer, "Healer"}, {Mage, "Mage"}, { Warrior, "Warrior"} };
 	std::string str;
@@ -184,6 +176,6 @@ void PrintCharacter(const CharacterStruct& character) {
 	std::cout << "Melee: " << character.melee << std::endl;
 	std::cout << "Ranged: " << character.ranged << std::endl;
 	std::cout << "Power sum: " << character.ranged + character.melee << std::endl;
-	std::cout << endl;
+	std::cout << '\n';
 
 }

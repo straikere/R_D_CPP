@@ -1,9 +1,7 @@
 #pragma once
-#include <iostream> 
 #include <vector>
-#include <random>
-#include <map>
-#include <string>
+
+using std::vector;
 
 enum chClass 
 { 
@@ -31,7 +29,9 @@ void FillVectorCharacterStruct(std::vector<CharacterStruct>& vec, int quantity);
 //	@return повертає випадковий класс
 chClass randClass();
 
-//	Заповнює вектор рандомними значеннями для персонажей
+/*	Заповнює вектор рандомними значеннями для персонажей
+*	@param vec вектор який потрібно заповнити
+*/
 void FillVectorRandomCharacter(std::vector<CharacterStruct>& vec);
 
 /*	Виводить в консоль всіх персонажей в середені вектора
