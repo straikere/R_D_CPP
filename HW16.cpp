@@ -27,8 +27,12 @@
 //		Умова перемоги : сумарна сила членів клану більша за сумарну силу іншого клану
 //	
 //
-
+#include<map>
+#include<vector>
+#include<iostream>
 #include"HW16.h"
+
+using std::map, std::vector;
 
 //Вписати тут ture для авто дебага
 #define DEBUG_ON false
@@ -102,6 +106,7 @@ int ClanFight(const string& FirstClanName, const string& SecondClanName) {
 
 	float maxPowerTeamA = 0;
 	float maxPowerTeamB = 0;
+
 	for (int i = 0; i < teamMap[FirstClanName].size(); i++)
 	{
 		maxPowerTeamA += teamMap.find(FirstClanName)->second[i].power;
@@ -110,7 +115,6 @@ int ClanFight(const string& FirstClanName, const string& SecondClanName) {
 	for (int i = 0; i < teamMap[SecondClanName].size(); i++)
 	{
 		maxPowerTeamB += teamMap.find(SecondClanName)->second[i].power;
-
 	}
 
 	if (maxPowerTeamA>maxPowerTeamB)
@@ -124,13 +128,13 @@ int ClanFight(const string& FirstClanName, const string& SecondClanName) {
 	else
 	{
 		return 0;
-
 	}
 }
 
 void InputMenu() {
 	int switch_on;
-	for (;;)
+
+	while (true)
 	{
 		std::cout << "Створити команду та персонажа? 1 -- Так, 0 -- Вихід: ";
 		std::cin >> switch_on;
@@ -172,7 +176,6 @@ void AddPlayerToTeam() {
 	std::cout << "Введіть силу гравця: ";
 	std::cin >> playerPower;
 
-
 	if (teamMap.find(teamName) != teamMap.end())
 	{
 		teamMap.find(teamName)->second.push_back(chStruct(playerName, playerPower));
@@ -180,5 +183,4 @@ void AddPlayerToTeam() {
 	else {
 		teamMap.insert({ teamName, vector<chStruct>{{playerName,playerPower}} });
 	}
-
 }
