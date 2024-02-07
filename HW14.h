@@ -10,8 +10,8 @@ void FillArrayHealOrDmg(vector<int>& arr);
 
 /*	Перевіряє чи пустий масив
 *	@param arr вектор який хочемо перевірити
-*	@return 0, массив пустий
-*			1, массив валідний
+*	@return 0 массив пустий,
+*			1 массив валідний
 */
 bool ArrayIsValid(const vector<int>& arr);
 
@@ -31,9 +31,9 @@ void MinDamage(const vector<int>& arr);
 void Heal(const vector<int>& arr);
 
 /*	Виводить в консоль всю шкоду або лікування
-*	@param arr вектор в якому шукаємо данні
-*	@param isDamage	true, виводить шкоду
-*					false, виводить лікування
+*	@param arr вектор в якому шукаємо данні,
+*	@param isDamage	true виводить шкоду,
+*					false виводить лікування
 */
 void AllDamageOrHeal(const vector<int>& arr, bool isDamage);
 

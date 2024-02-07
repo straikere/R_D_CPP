@@ -41,7 +41,7 @@ void StatisticMenu(const vector<int>& HODArray)
         "„и Ї хтось, хто н≥чого нам не зробив -- 5\n"
         "¬их≥д -- 0\n"
         "¬аш вар≥ант: ";
-    for (bool i = true; i == true;)
+    while (true)
     {
         cin >> switch_on;
         cout << '\n';
@@ -80,7 +80,6 @@ void StatisticMenu(const vector<int>& HODArray)
             NonDamageTarget(HODArray);
             break;
         case 0:
-            i = false;
             return;
             break;
         default:
@@ -100,7 +99,7 @@ void FillArrayHealOrDmg(vector<int> &arr)
     std::string str;
     cout << "¬вед≥ть шкоду (додатн≥ числа) або в≥дновленн€ (в≥д'Їмн≥ числа) здоров'€\n"
             "ƒл€ виходу з режиму вводу натисн≥ть Enter або введ≥ть букву\n";
-    for (int i = 0;; i++)
+    while (true)
     {
         //данн≥ з вводу записуЇм в str 
         getline(cin, str, '\n');
