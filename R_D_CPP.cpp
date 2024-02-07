@@ -3,7 +3,7 @@
 #include <iostream>
 #include <Windows.h>
 
-using namespace std;
+using std::cout, std::cin;
 
 void Homework13();
 void Homework14();
@@ -16,7 +16,9 @@ int main()
 	SetConsoleOutputCP(1251);
 
 	cout <<	"Домашнє завдання 13 -- 1\n"
-			"Домашнє завдання 14 -- 2\n" << endl;
+			"Домашнє завдання 14 -- 2\n"
+			"Домашнє завдання 15 -- 3\n"
+			"Домашнє завдання 16 -- 4\n" << '\n';
 
 	cout << "Виберіть домашє завдання: ";
 	cin >> switch_on;

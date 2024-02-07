@@ -25,222 +25,188 @@
 //
 
 #include <iostream>
-#include <Windows.h>
 #include <ctime>
+#include "HW13.h"
 
-using namespace std;
-
-//enum наших классів починаєтся з 1
-enum CharacterClass
-{
-    Mage = 1,
-    Warrior
-};
-
+using std::cin, std::cout;
 
 void Homework13() {
 
-
-    //локалізація консолі
-    SetConsoleCP(1251);
-    SetConsoleOutputCP(1251);
-
-    //постійний рандом
+    //regular random
     srand(time(NULL));
 
-    //Об'являєм змінну на ім'я персонажа
-    string CharacterName;
-
+    std::string CharacterName;
     cout << "Введіть імя персонажа: ";
-
-    //Вводимо ім'я персонажа
     cin >> CharacterName;
 
-    //Об'являєм змінну на здоров'я та максимальне здоров'я персонажа (по замовчуванню 100)
-    float CharacterHealth = 100, CharacterMaxHealth = 100;
+    //default Character Stats
+    float CharacterHealth = 100;
+    float CharacterMaxHealth = 100;
+
     cout << "Введіть здоров'я персонажа: ";
-
-    //Вводимо здоров'я
     cin >> CharacterHealth;
-
-    //Макс здоровя = здоровю, для обчислення %
     CharacterMaxHealth = CharacterHealth;
 
-    //ініціалізуємо enum
-    CharacterClass MyCharacterClass;
+    CharacterClass MyCharacterClass = ChoseClass();
 
-    //ініціалізуємо інтову змінну для классів
-    int CharacterClassInt;
-
-    //Цикл доки правельно не буде введений Класс персонажу
-    for (bool i = true; i == true;)
-    {
-        cout << "Виберіть клас персонажа 1 -- Маг, 2 -- Воїн: ";
-        cin >> CharacterClassInt;
-        switch (CharacterClassInt)
-        {
-        case 1:
-        {
-            MyCharacterClass = Mage;
-            i = false;
-            break;
-        }
-        case 2:
-        {
-            MyCharacterClass = Warrior;
-            i = false;
-            break;
-        }
-        default:
-            cout << "Ввід не вірний, повторіть ваш ввід" << endl;
-            break;
-        }
-
-    }
-
-
-    //змінна для смерті
     bool IsDead = false;
-
-    //змінна для шкоди
     int Damage = 0;
-
-    //Змінна для відцотків
     float Procentage = 100;
-
-    //Змінна для "потужності"
     float Power;
 
     switch (MyCharacterClass)
     {
     case Mage:
-        cout << "Класс персонажа Маг (кожне парне число наносить подвійну шкоду)" << endl;
-        cout << "Якщо шкода більша за 2хпотужності, то є 50% ймовірності, що вона йому не зменшить здоров’я" << endl;
+        cout << "Класс персонажа Маг (кожне парне число наносить подвійну шкоду)\n";
+        cout << "Якщо шкода більша за 2хпотужності, то є 50% ймовірності, що вона йому не зменшить здоров’я\n";
 
-        //Потужність у Мага
+        //Mage power
         Power = 10;
 
-        cout << "Ваша потужність = " << Power << endl;
+        cout << "Ваша потужність = " << Power << '\n';
 
-        //Цикл на смерть
         while (!IsDead)
         {
-            cout << "--------------------------------------------------------" << endl;
+            cout << "--------------------------------------------------------\n" ;
             cout << "Введіть шкоду для вашого персонажа: ";
             cin >> Damage;
 
             //Якщо шкода парна
-            if ((Damage % 2) == 0)
-            {
-                cout << "Шкода " << Damage << " парна, шкода = " << 2 * Damage << endl;
-                Damage = 2 * Damage;
+            DamageToMage(Damage,CharacterHealth,Power);
 
-                //Якщо шкода більше 2*потужності і вам повезло "rand() % 2" має діапазон рантому від 0 до 1 що є 50% вірогідності
-                if (Damage > (2 * Power) && rand() % 2)
-                {
-                    cout << "Удача! Вам не нанесено шкоди!" << endl;
-                }
-                else
-                {
-                    CharacterHealth = CharacterHealth - Damage;
-                }
-            }
-            else
-            {
-                cout << "Шкода " << Damage << " не парна, шкода = " << Damage << endl;
-
-                //Якщо шкода більше потужності і вам повезло
-                if (Damage > (2 * Power) && rand() % 2)
-                {
-                    cout << "Удача! Вам не нанесено шкоди!" << endl;
-                }
-                else
-                {
-                    CharacterHealth = CharacterHealth - Damage;
-                }
-            }
-
-            //Вираховуємо відцотки після отримання урону
+            //відцотки після отримання урону
             Procentage = (CharacterHealth / CharacterMaxHealth) * 100;
 
-            //Перевіряємо чи вмерли
+            //вмерли?
             if (Procentage <= 0)
             {
                 IsDead = !IsDead;
             }
             else
             {
-                cout << "У персонажа залишилося " << (CharacterHealth / CharacterMaxHealth) * 100 << "% HP, це = " << CharacterHealth << endl;
+                cout << "У персонажа залишилося " << (CharacterHealth / CharacterMaxHealth) * 100 << "% HP, це = " << CharacterHealth << '\n';
             }
         }
         break;
 
     case Warrior:
-        cout << "Класс персонажа Воїн (кожне непарне число наносить потрійну шкоду, а парні не наносять шкоду)" << endl;
-        cout << "Якщо у воїна менше 30% здоров’я, то наносимий йому урон зменшується на величину параметру “потужність”" << endl;
+        cout << "Класс персонажа Воїн (кожне непарне число наносить потрійну шкоду, а парні не наносять шкоду)\n";
+        cout << "Якщо у воїна менше 30% здоров’я, то наносимий йому урон зменшується на величину параметру “потужність”\n";
 
         //Потужність у Воїна
         Power = 10;
 
-        cout << "Ваша потужність = " << Power << endl;
+        cout << "Ваша потужність = " << Power << '\n';
 
-        //Цикл на смерть
         while (!IsDead)
         {
-            cout << "--------------------------------------------------------" << endl;
+            cout << "--------------------------------------------------------\n";
             cout << "Введіть шкоду для вашого персонажа: ";
             cin >> Damage;
 
-            //Вираховуємо відцотки до отримання урону
-            Procentage = (CharacterHealth / CharacterMaxHealth) * 100;
+            Procentage = DamageToWarrior(Damage,CharacterHealth,CharacterMaxHealth,Power);            
 
-            //Якщо шкода парна
-            if ((Damage % 2) == 0)
-            {
-                cout << "Шкода " << Damage << " парна, шкода = " << 0 << endl;
-            }
-            else
-            {
-                cout << "Шкода " << Damage << " не парна, шкода = " << 3 * Damage << endl;
-                Damage = (3 * Damage);
-
-                //Якщо меньше 30% здоров'я
-                if (Procentage < 30)
-                {
-                    cout << "Шкоду зменшено на " << Power;
-                    Damage = Damage - Power;
-
-                    //Захист від мінусового значення
-                    if (Damage < 0)
-                    {
-                        Damage = 1;
-                    }
-                    cout << ", шкода = " << Damage << endl;
-                }
-                CharacterHealth = CharacterHealth - Damage;
-            }
-
-            //Вираховуємо відцотки після отримання урону
-            Procentage = (CharacterHealth / CharacterMaxHealth) * 100;
-
-            //Перевіряємо чи вмерли
+            //вмерли?
             if (Procentage <= 0)
             {
                 IsDead = !IsDead;
             }
             else
             {
-                cout << "У персонажа залишилося " << (CharacterHealth / CharacterMaxHealth) * 100 << "% HP, це = " << CharacterHealth << endl;
+                cout << "У персонажа залишилося " << (CharacterHealth / CharacterMaxHealth) * 100 << "% HP, це = " << CharacterHealth << '\n';
             }
         }
         break;
     }
 
-    //якщо ми тут то це точно смерть
-    cout << "--------------------------------------------------------" << endl;
-    cout << "Ви вмерли!" << endl;
-    cout << "Ім'я персонажа " << CharacterName << endl;
-    cout << "Встановлене здоров'я персонажа " << CharacterMaxHealth << endl;
-    cout << "The End!" << endl;
+    cout << "--------------------------------------------------------\n";
+    cout << "Ви вмерли!\n";
+    cout << "Ім'я персонажа " << CharacterName << '\n';
+    cout << "Встановлене здоров'я персонажа " << CharacterMaxHealth << '\n';
+    cout << "The End!" << '\n';
 
+}
+
+CharacterClass ChoseClass() {
+    int ChClassInt;
+    CharacterClass ChClassStruct;
+    while (true)
+    {
+        cout << "Виберіть клас персонажа 1 -- Маг, 2 -- Воїн: ";
+        cin >> ChClassInt;
+        ChClassStruct = static_cast<CharacterClass>(ChClassInt);
+        if (ChClassStruct < CharacterClass::MAX && ChClassStruct >= 1)
+        {
+            return ChClassStruct;
+        }
+        cout << "Ввід не вірний, повторіть ваш ввід\n";
+    }
+}
+
+void DamageToMage(int& Damage, float &CharacterHealth,const int &Power) {
+    if ((Damage % 2) == 0)
+    {
+        cout << "Шкода " << Damage << " парна, шкода = " << 2 * Damage << '\n';
+
+        Damage = 2 * Damage;
+
+        //Якщо шкода більше 2*потужності і вам повезло "rand() % 2" має діапазон рантому від 0 до 1 що є 50% вірогідності
+        if (Damage > (2 * Power) && rand() % 2)
+        {
+            cout << "Удача! Вам не нанесено шкоди!\n";
+        }
+        else
+        {
+            CharacterHealth = CharacterHealth - Damage;
+        }
+    }
+    else
+    {
+        cout << "Шкода " << Damage << " не парна, шкода = " << Damage << '\n';
+
+        //Якщо шкода більше потужності і вам повезло
+        if (Damage > (2 * Power) && rand() % 2)
+        {
+            cout << "Удача! Вам не нанесено шкоди!\n";
+        }
+        else
+        {
+            CharacterHealth = CharacterHealth - Damage;
+        }
+    }
+}
+
+float DamageToWarrior(int& Damage, float& CharacterHealth,const float &CharacterMaxHealth, const int &Power) {
+
+    float Procentage;
+
+    Procentage = (CharacterHealth / CharacterMaxHealth) * 100;
+
+    if ((Damage % 2) == 0)
+    {
+        cout << "Шкода " << Damage << " парна, шкода = " << 0 << '\n';
+        return Procentage;
+    }
+    else
+    {
+        cout << "Шкода " << Damage << " не парна, шкода = " << 3 * Damage << '\n';
+        Damage = (3 * Damage);
+
+        //Якщо меньше 30% здоров'я
+        if (Procentage < (30))
+        {
+            cout << "Шкоду зменшено на " << Power;
+            Damage = Damage - Power;
+
+            //Захист від мінусового значення
+            if (Damage < 0)
+            {
+                Damage = 1;
+            }
+            cout << ", шкода = " << Damage << '\n';
+        }
+        CharacterHealth = CharacterHealth - Damage;
+    }
+    Procentage = (CharacterHealth / CharacterMaxHealth) * 100;
+    return Procentage;
 }
