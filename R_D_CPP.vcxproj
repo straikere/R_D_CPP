@@ -136,6 +136,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="HW13.h" />
+    <ClInclude Include="HW14.h" />
     <ClInclude Include="HW15.h" />
     <ClInclude Include="HW16.h" />
   </ItemGroup>

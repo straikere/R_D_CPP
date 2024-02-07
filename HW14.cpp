@@ -13,37 +13,24 @@
 //
 
 #include <iostream>
-#include <Windows.h>
-#include <vector>
 #include <string>
+#include "HW14.h"
 
+using std::cout, std::cin;
 
-using namespace std;
-
-void FillArrayHealOrDmg(vector<int>& arr);
-bool ArrayIsValid(const vector<int>& arr);
-void MaxDamage(const vector<int>& arr);
-void MinDamage(const vector<int>& arr);
-void Heal(const vector<int>& arr);
-void AllDamageOrHeal(const vector<int>& arr, bool isDamage);
-void NonDamageTarget(const vector<int>& arr);
-void Menu(const vector<int>& HODArray);
-
-//Функція Домашнього Завдання 14
 void Homework14() {
-    //об'являємо масив типа вектор
+   
     vector<int> HealOrDmgArray;
-    //викликаємо функцію заповнення масиву числами які вводить користувач
+
     FillArrayHealOrDmg(HealOrDmgArray);
-    //перевірка на валідність масиву
+
     if (!ArrayIsValid(HealOrDmgArray)) return;
-    //меню функцій
-    Menu(HealOrDmgArray);
+    
+    StatisticMenu(HealOrDmgArray);
     
 }
 
-
-void Menu(const vector<int>& HODArray)
+void StatisticMenu(const vector<int>& HODArray)
 {
     int switch_on;
     cout << "Режим статистики, виберіть варіант\n"
@@ -57,7 +44,7 @@ void Menu(const vector<int>& HODArray)
     for (bool i = true; i == true;)
     {
         cin >> switch_on;
-        cout << endl;
+        cout << '\n';
         switch (switch_on)
         {
         case 1:
@@ -74,7 +61,7 @@ void Menu(const vector<int>& HODArray)
                     "Скільки всього нам нанесли лікування -- 2\n"
                     "Введіть шкода чи лікування: ";
             cin >> switch_on;
-            cout << endl;
+            cout << '\n';
             switch (switch_on)
             {
             case 1:
@@ -100,18 +87,17 @@ void Menu(const vector<int>& HODArray)
             cout << "Ввід не вірний, повторіть ваш ввід\n";
             break;
         }
-        cout << endl;
+        cout << '\n';
         cout << "Ваш варіант: ";
     }
 }
-
 
 void FillArrayHealOrDmg(vector<int> &arr) 
 {
     //"чистим" сin
     std::cin.ignore(32767, '\n');
     int number;
-    string str;
+    std::string str;
     cout << "Введіть шкоду (додатні числа) або відновлення (від'ємні числа) здоров'я\n"
             "Для виходу з режиму вводу натисніть Enter або введіть букву\n";
     for (int i = 0;; i++)
@@ -128,17 +114,14 @@ void FillArrayHealOrDmg(vector<int> &arr)
         try {
             number = stoi(str);
         }
-        catch (exception& e) {
+        catch (std::exception& e) {
             //якщо зловили помилку виходемо з вводу
             cout << "Ви вийшли з режиму вводу\n\n";
             return;
         }
-        //якщо все ок, то ресайзем массив і присваюємо значення в нього по індексу
-        arr.resize(i + 1);
-        arr[i] = number;
+        arr.push_back(number);
     }
 }
-
 
 bool ArrayIsValid(const vector<int>& arr)
 {
@@ -152,7 +135,6 @@ bool ArrayIsValid(const vector<int>& arr)
     cout << "Массив валідний\n\n";
     return 1;
 }
-
 
 void MaxDamage(const vector<int>& arr) 
 {
@@ -172,7 +154,7 @@ void MaxDamage(const vector<int>& arr)
         return;
     }
     //якщо все ок
-    cout << "Максимальна шкода: " << MaxDmg << endl;
+    cout << "Максимальна шкода: " << MaxDmg << '\n';
     cout << "Номер в послідовності: ";
 
     //якщо однакових чисел з найбільшим дамагом більше в послідовності чим одне
@@ -184,9 +166,8 @@ void MaxDamage(const vector<int>& arr)
         }
     }
 
-    cout << endl;
+    cout << '\n';
 }
-
 
 void MinDamage(const vector<int>& arr) 
 {
@@ -216,7 +197,7 @@ void MinDamage(const vector<int>& arr)
         return;
     }
     // якщо є мінімальна шкода
-    cout << "Мінімальна шкода " << MinDmg << endl;
+    cout << "Мінімальна шкода " << MinDmg << '\n';
     cout << "Номер в послідовності: ";
     //якщо однакових чисел з найменшим дамагом більше в послідовності чим одне
     for (int i = 0; i < arr.size(); i++)
@@ -227,9 +208,8 @@ void MinDamage(const vector<int>& arr)
         }
     }
 
-    cout << endl;
+    cout << '\n';
 }
-
 
 void Heal(const vector<int>& arr) 
 {
@@ -254,9 +234,8 @@ void Heal(const vector<int>& arr)
         cout << "В послідовності немає того хто відновив нам здоров'я";
     }
 
-    cout << endl;
+    cout << '\n';
 }
-
 
 void AllDamageOrHeal(const vector<int>& arr, bool isDamage = true) 
 {
@@ -279,7 +258,7 @@ void AllDamageOrHeal(const vector<int>& arr, bool isDamage = true)
         }
         else
         {
-            cout << "Всього шкоди: " << sum << endl;
+            cout << "Всього шкоди: " << sum << '\n';
         }
     }
     else {
@@ -297,11 +276,10 @@ void AllDamageOrHeal(const vector<int>& arr, bool isDamage = true)
         }
         else
         {
-            cout << "Всього лікування: " << sum * -1 << endl;
+            cout << "Всього лікування: " << sum * -1 << '\n';
         }
     }
 }
-
 
 void NonDamageTarget(const vector<int>& arr) 
 {
@@ -326,5 +304,5 @@ void NonDamageTarget(const vector<int>& arr)
     {
         cout << "В послідовності немає того хто наніс нам 0 шкоди";
     }
-    cout << endl;
+    cout << '\n';
 }
