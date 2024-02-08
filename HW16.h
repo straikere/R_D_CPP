@@ -14,7 +14,7 @@ struct chStruct
 *	@return кількість гравців у клані,
 *			-1 якщо ім'я не знайдено
 */
-int GetPlayerCount(const string& ClanName);
+size_t GetPlayerCount(const string& ClanName);
 
 /*	повертає результат поєдинку між кланами
 *	@param FirstClanName приймає назву клану А

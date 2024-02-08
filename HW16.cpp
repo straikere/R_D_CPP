@@ -84,7 +84,7 @@ void Homework16() {
 	}
 }
 
-int GetPlayerCount(const string& ClanName) {
+size_t GetPlayerCount(const string& ClanName) {
 	if (teamMap.find(ClanName) != teamMap.end())
 	{
 		return teamMap.find(ClanName)->second.size();
