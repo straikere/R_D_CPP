@@ -129,19 +129,29 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Building.cpp" />
+    <ClCompile Include="Character.cpp" />
+    <ClCompile Include="Dagger.cpp" />
     <ClCompile Include="HW13.cpp" />
     <ClCompile Include="HW14.cpp" />
     <ClCompile Include="HW15.cpp" />
     <ClCompile Include="HW16.cpp" />
     <ClCompile Include="HW17.cpp" />
+    <ClCompile Include="HW18.cpp" />
     <ClCompile Include="R_D_CPP.cpp" />
+    <ClCompile Include="Sword.cpp" />
+    <ClCompile Include="Weapon.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Building.h" />
+    <ClInclude Include="Character.h" />
+    <ClInclude Include="Dagger.h" />
     <ClInclude Include="HW13.h" />
     <ClInclude Include="HW14.h" />
     <ClInclude Include="HW15.h" />
     <ClInclude Include="HW16.h" />
+    <ClInclude Include="HW18.h" />
+    <ClInclude Include="Sword.h" />
+    <ClInclude Include="Weapon.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -19,6 +19,12 @@
     <Filter Include="Файлы заголовков\HW17">
       <UniqueIdentifier>{8ac282e6-2a83-4aba-a138-2a8d485bd68f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Исходные файлы\HW18">
+      <UniqueIdentifier>{bb6b5fc7-1074-4d67-b5da-52e378c7dd2e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы заголовков\HW18">
+      <UniqueIdentifier>{327668f1-ba1e-422a-93f1-3ab41bb9e547}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="R_D_CPP.cpp">
@@ -42,6 +48,21 @@
     <ClCompile Include="HW17.cpp">
       <Filter>Исходные файлы\HW17</Filter>
     </ClCompile>
+    <ClCompile Include="HW18.cpp">
+      <Filter>Исходные файлы\HW18</Filter>
+    </ClCompile>
+    <ClCompile Include="Character.cpp">
+      <Filter>Исходные файлы\HW18</Filter>
+    </ClCompile>
+    <ClCompile Include="Weapon.cpp">
+      <Filter>Исходные файлы\HW18</Filter>
+    </ClCompile>
+    <ClCompile Include="Sword.cpp">
+      <Filter>Исходные файлы\HW18</Filter>
+    </ClCompile>
+    <ClCompile Include="Dagger.cpp">
+      <Filter>Исходные файлы\HW18</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="HW15.h">
@@ -58,6 +79,21 @@
     </ClInclude>
     <ClInclude Include="Building.h">
       <Filter>Файлы заголовков\HW17</Filter>
+    </ClInclude>
+    <ClInclude Include="HW18.h">
+      <Filter>Файлы заголовков\HW18</Filter>
+    </ClInclude>
+    <ClInclude Include="Character.h">
+      <Filter>Файлы заголовков\HW18</Filter>
+    </ClInclude>
+    <ClInclude Include="Weapon.h">
+      <Filter>Файлы заголовков\HW18</Filter>
+    </ClInclude>
+    <ClInclude Include="Sword.h">
+      <Filter>Файлы заголовков\HW18</Filter>
+    </ClInclude>
+    <ClInclude Include="Dagger.h">
+      <Filter>Файлы заголовков\HW18</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
