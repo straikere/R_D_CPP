@@ -109,12 +109,14 @@ int ClanFight(const string& FirstClanName, const string& SecondClanName) {
 
 	for (int i = 0; i < teamMap[FirstClanName].size(); i++)
 	{
-		maxPowerTeamA += teamMap.find(FirstClanName)->second[i].power;
+		maxPowerTeamA += teamMap[FirstClanName][i].power;
+		//maxPowerTeamA += teamMap.find(FirstClanName)->second[i].power;
 	}
 
 	for (int i = 0; i < teamMap[SecondClanName].size(); i++)
 	{
-		maxPowerTeamB += teamMap.find(SecondClanName)->second[i].power;
+		maxPowerTeamB += teamMap[SecondClanName][i].power;
+		//maxPowerTeamB += teamMap.find(SecondClanName)->second[i].power;
 	}
 
 	if (maxPowerTeamA>maxPowerTeamB)
