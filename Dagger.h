@@ -2,13 +2,15 @@
 #include "Weapon.h"
 class Dagger :
     public Weapon
-
 {
 public:
-    Dagger();
-    ~Dagger();
-
+    Dagger(string _Name = "Dagger", float _Damage = 0);
+    
     float GetDamage();
     string GetName();
+
+private:
+    string Name;
+    float Damage;
 };
 

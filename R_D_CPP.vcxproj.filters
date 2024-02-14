@@ -25,6 +25,24 @@
     <Filter Include="Файлы заголовков\HW18">
       <UniqueIdentifier>{327668f1-ba1e-422a-93f1-3ab41bb9e547}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Файлы заголовков\HW18\Weapon">
+      <UniqueIdentifier>{55575beb-9917-4469-85d2-0e58c21040a1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы заголовков\HW18\Character">
+      <UniqueIdentifier>{8fbd9a84-7da3-472f-856c-e8c359a45e6c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы заголовков\HW18\DamageModifier">
+      <UniqueIdentifier>{1ca0c816-11f4-4c70-9bf8-4f74fa1a979c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\HW18\Character">
+      <UniqueIdentifier>{88cd991e-3b7e-4cdd-96ce-1813683fea1a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\HW18\DamageModifier">
+      <UniqueIdentifier>{9a8866be-4455-4a32-8b83-fe4e264c528a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\HW18\Weapon">
+      <UniqueIdentifier>{e064247f-b3d7-4781-8a68-04314137d421}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="R_D_CPP.cpp">
@@ -52,16 +70,22 @@
       <Filter>Исходные файлы\HW18</Filter>
     </ClCompile>
     <ClCompile Include="Character.cpp">
-      <Filter>Исходные файлы\HW18</Filter>
-    </ClCompile>
-    <ClCompile Include="Weapon.cpp">
-      <Filter>Исходные файлы\HW18</Filter>
-    </ClCompile>
-    <ClCompile Include="Sword.cpp">
-      <Filter>Исходные файлы\HW18</Filter>
+      <Filter>Исходные файлы\HW18\Character</Filter>
     </ClCompile>
     <ClCompile Include="Dagger.cpp">
-      <Filter>Исходные файлы\HW18</Filter>
+      <Filter>Исходные файлы\HW18\Weapon</Filter>
+    </ClCompile>
+    <ClCompile Include="Sword.cpp">
+      <Filter>Исходные файлы\HW18\Weapon</Filter>
+    </ClCompile>
+    <ClCompile Include="MultiplicationDamageModifier.cpp">
+      <Filter>Исходные файлы\HW18\DamageModifier</Filter>
+    </ClCompile>
+    <ClCompile Include="AdditionDamageModifier.cpp">
+      <Filter>Исходные файлы\HW18\DamageModifier</Filter>
+    </ClCompile>
+    <ClCompile Include="ParityDamageModifier.cpp">
+      <Filter>Исходные файлы\HW18\DamageModifier</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -80,20 +104,29 @@
     <ClInclude Include="Building.h">
       <Filter>Файлы заголовков\HW17</Filter>
     </ClInclude>
-    <ClInclude Include="HW18.h">
-      <Filter>Файлы заголовков\HW18</Filter>
-    </ClInclude>
-    <ClInclude Include="Character.h">
-      <Filter>Файлы заголовков\HW18</Filter>
-    </ClInclude>
-    <ClInclude Include="Weapon.h">
-      <Filter>Файлы заголовков\HW18</Filter>
+    <ClInclude Include="Dagger.h">
+      <Filter>Файлы заголовков\HW18\Weapon</Filter>
     </ClInclude>
     <ClInclude Include="Sword.h">
-      <Filter>Файлы заголовков\HW18</Filter>
+      <Filter>Файлы заголовков\HW18\Weapon</Filter>
     </ClInclude>
-    <ClInclude Include="Dagger.h">
-      <Filter>Файлы заголовков\HW18</Filter>
+    <ClInclude Include="Weapon.h">
+      <Filter>Файлы заголовков\HW18\Weapon</Filter>
+    </ClInclude>
+    <ClInclude Include="DamageModifier.h">
+      <Filter>Файлы заголовков\HW18\DamageModifier</Filter>
+    </ClInclude>
+    <ClInclude Include="MultiplicationDamageModifier.h">
+      <Filter>Файлы заголовков\HW18\DamageModifier</Filter>
+    </ClInclude>
+    <ClInclude Include="Character.h">
+      <Filter>Файлы заголовков\HW18\Character</Filter>
+    </ClInclude>
+    <ClInclude Include="AdditionDamageModifier.h">
+      <Filter>Файлы заголовков\HW18\DamageModifier</Filter>
+    </ClInclude>
+    <ClInclude Include="ParityDamageModifier.h">
+      <Filter>Файлы заголовков\HW18\DamageModifier</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

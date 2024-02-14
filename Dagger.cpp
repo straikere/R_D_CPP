@@ -1,17 +1,14 @@
 #include "Dagger.h"
 
-Dagger::Dagger() {
-
-}
-
-Dagger::~Dagger() {
-
+Dagger::Dagger(string _Name, float _Damage) {
+	Name = _Name;
+	Damage = _Damage;
 }
 
 float Dagger::GetDamage() {
-	return 0;
+	return Damage;
 }
 
 string Dagger::GetName() {
-	return "Dagger";
+	return Name;
 }

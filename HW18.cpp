@@ -31,29 +31,77 @@
 
 #include <iostream>
 #include "Character.h"
-
 #include "Sword.h"
 #include "Dagger.h"
+#include "MultiplicationDamageModifier.h"
+#include "AdditionDamageModifier.h"
+#include <vector>
+
+
 using std::cout;
+using std::vector;
 
 void Homework18() {
 
-	Sword Atlanta("SSS");
+	Character* warrior = new Character(); // буде з sword + клас який множить шкоду
+	Character* thief = new Character(); // буде з dagger + клас який додає шкоду від вепона
+	Character* shadow = new Character(); // буде з dagger + клас який зменшує шкоду від вепона
+	Character* empty = new Character(); // пустий чарактер для теста на помилки
 
-	cout << "Name " << Atlanta.GetName() << '\n';
-	cout << "Damage " << Atlanta.GetDamage() << '\n';
 
-	Character test,test1,ttt;
-	Weapon* swrd = new Sword("sss");
-	Weapon* dgr = new Dagger;
+	Weapon* sword = new Sword("Destructor 9000",10);
+	Weapon* dagger = new Dagger("Little Needle", 5);
 
-	test.SetWeapon(swrd);
-	test1.SetWeapon(dgr);
+	warrior->SetWeapon(sword);
+	thief->SetWeapon(dagger);
+	shadow->SetWeapon(dagger);
 
-	cout << "Weapon Name " << test.GetWeapon()->GetName() << '\n';
-	cout << "Weapon Name " << test1.GetWeapon()->GetName() << '\n';
+	DamageModifier* mdm = new MultiplicationDamageModifier(2);
+	DamageModifier* adm_add10 = new AdditionDamageModifier(10);
+	DamageModifier* adm_substruct6 = new AdditionDamageModifier(-6);
 
-	cout << "Weapon Name " << ttt.GetWeapon()<< '\n';
+	warrior->SetDamageModifier(mdm);
+	thief->SetDamageModifier(adm_add10);
+	shadow->SetDamageModifier(adm_substruct6);
 
+	// для зручної роботи
+	vector<Character*> characterVec;
+	characterVec.push_back(warrior);
+	characterVec.push_back(thief);
+	characterVec.push_back(shadow);
+	characterVec.push_back(empty);
+
+	cout << "--------------------\n";
+
+	for (Character* character : characterVec)
+	{
+		if (character->GetWeapon())
+		{
+			cout << "Weapon Name " << character->GetWeapon()->GetName() << '\n';
+			cout << "Weapon Damage " << character->GetWeapon()->GetDamage() << '\n';
+			cout << "Modified weapon damage " << character->GetModifiedDamage() << '\n';
+			cout << "--------------------\n";
+		}
+	}
 	
+	// змінюємо модифікатори 
+	warrior->SetDamageModifier(adm_substruct6); 
+	thief->SetDamageModifier(mdm);
+	shadow->SetDamageModifier(adm_add10);
+
+	cout << "--------------------\n";
+
+	for (Character* character : characterVec)
+	{
+		if (character->GetWeapon())
+		{
+			cout << "Weapon Name " << character->GetWeapon()->GetName() << '\n';
+			cout << "Weapon Damage " << character->GetWeapon()->GetDamage() << '\n';
+			cout << "Modified weapon damage " << character->GetModifiedDamage() << '\n';
+			cout << "--------------------\n";
+		}
+	}
+
+	// видаляємо те що настворювали
+	delete warrior, thief, empty, sword, dagger, thief, mdm, adm_add10, adm_substruct6;
 }

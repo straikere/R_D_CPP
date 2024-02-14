@@ -3,12 +3,8 @@
 
 using std::string;
 
-class Weapon
-{
+class Weapon {
 public:
-	Weapon();
-	~Weapon();
-
 	virtual float GetDamage() = 0;
 	virtual string GetName() = 0;
 };

@@ -1,15 +1,12 @@
 #include "Sword.h"
 
-Sword::Sword(string _Name) {
+Sword::Sword(string _Name, float _Damage) {
 	Name = _Name;
-}
-
-Sword::~Sword() {
-
+	Damage = _Damage;
 }
 
 float Sword::GetDamage() {
-	return 0;
+	return Damage;
 }
 
 string Sword::GetName() {
