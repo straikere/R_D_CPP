@@ -6,6 +6,7 @@ class AdditionDamageModifier :
 public:
 
     AdditionDamageModifier(float addition);
+    ~AdditionDamageModifier() {};
 
     float CalculateDamage (float Damage);
 

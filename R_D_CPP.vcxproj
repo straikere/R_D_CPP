@@ -131,6 +131,7 @@
     <ClCompile Include="AdditionDamageModifier.cpp" />
     <ClCompile Include="Building.cpp" />
     <ClCompile Include="Character.cpp" />
+    <ClCompile Include="CharacterHW19.cpp" />
     <ClCompile Include="Dagger.cpp" />
     <ClCompile Include="HW13.cpp" />
     <ClCompile Include="HW14.cpp" />
@@ -138,6 +139,7 @@
     <ClCompile Include="HW16.cpp" />
     <ClCompile Include="HW17.cpp" />
     <ClCompile Include="HW18.cpp" />
+    <ClCompile Include="HW19.cpp" />
     <ClCompile Include="MultiplicationDamageModifier.cpp" />
     <ClCompile Include="ParityDamageModifier.cpp" />
     <ClCompile Include="R_D_CPP.cpp" />
@@ -147,6 +149,7 @@
     <ClInclude Include="AdditionDamageModifier.h" />
     <ClInclude Include="Building.h" />
     <ClInclude Include="Character.h" />
+    <ClInclude Include="CharacterHW19.h" />
     <ClInclude Include="Dagger.h" />
     <ClInclude Include="DamageModifier.h" />
     <ClInclude Include="HW13.h" />

@@ -6,12 +6,14 @@ class ParityDamageModifier :
 public:
 
     ParityDamageModifier(float multiplicator);
+    ~ParityDamageModifier() {};
 
-    float CalculateDamage(float Damage);
+    float CalculateDamage(float Damage) override;
 
 private:
 
     float multiplicator;
+    bool Toggle;
 
 };
 

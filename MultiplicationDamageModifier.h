@@ -6,6 +6,7 @@ class MultiplicationDamageModifier :
 public:
 
     MultiplicationDamageModifier(float _multiplicator);
+    ~MultiplicationDamageModifier() {};
 
     float CalculateDamage(float Damage);
 
