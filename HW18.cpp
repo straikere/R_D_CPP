@@ -83,6 +83,7 @@ void Homework18() {
 	// для зручної роботи
 	vector<Character*> characterVec;
 	characterVec.push_back(warrior);
+	characterVec.push_back(boss);
 	characterVec.push_back(thief);
 	characterVec.push_back(empty);
 
