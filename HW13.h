@@ -19,7 +19,7 @@ CharacterClass ChoseClass();
 *   @param CharacterHealth Актуальне здоров'я персонажа
 *   @param Power Потужніть персонажа
 */
-void DamageToMage(int& Damage, float& CharacterHealth, const int& Power);
+void DamageToMage(int& Damage, float& CharacterHealth, const float& Power);
 
 /*  Шкода до Воїна
 * 
@@ -33,4 +33,4 @@ void DamageToMage(int& Damage, float& CharacterHealth, const int& Power);
 * 
 *   @return відцоток від здоровя яке залишилося
 */
-float DamageToWarrior(int& Damage, float& CharacterHealth, const float& CharacterMaxHealth, const int& Power);
+float DamageToWarrior(int& Damage, float& CharacterHealth, const float& CharacterMaxHealth, const float& Power);

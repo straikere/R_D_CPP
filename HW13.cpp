@@ -143,7 +143,7 @@ CharacterClass ChoseClass() {
     }
 }
 
-void DamageToMage(int& Damage, float &CharacterHealth,const int &Power) {
+void DamageToMage(int& Damage, float &CharacterHealth,const float &Power) {
     if ((Damage % 2) == 0)
     {
         cout << "Шкода " << Damage << " парна, шкода = " << 2 * Damage << '\n';
@@ -176,7 +176,7 @@ void DamageToMage(int& Damage, float &CharacterHealth,const int &Power) {
     }
 }
 
-float DamageToWarrior(int& Damage, float& CharacterHealth,const float &CharacterMaxHealth, const int &Power) {
+float DamageToWarrior(int& Damage, float& CharacterHealth,const float &CharacterMaxHealth, const float &Power) {
 
     float Procentage;
 
@@ -196,7 +196,7 @@ float DamageToWarrior(int& Damage, float& CharacterHealth,const float &Character
         if (Procentage < (30))
         {
             cout << "Шкоду зменшено на " << Power;
-            Damage = Damage - Power;
+            Damage = Damage - static_cast<int>(Power);
 
             //Захист від мінусового значення
             if (Damage < 0)
