@@ -57,7 +57,7 @@ void Homework18() {
 	// DamageModifierи тепер діють як бафи\дебафи на зброю, в данному випадку тільки на Sword тому як він розширенний 
 	Weapon* sword = new Sword("Destructor 9000",10, mdm); // множить вихідну шкоду на 2
 	Weapon* goodSword = new Sword("Destructor 9000",10, parity); // множить вихідну шкоду через раз на 1.5
-	Weapon* daggerForBoss = new Sword("Gay DESTROYER", 23);
+	Weapon* daggerForBoss = new Sword("Gay DESTROYER", 23, nullptr);
 	Weapon* dagger = new Dagger("Little Needle", 5);
 	
 
