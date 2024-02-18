@@ -55,6 +55,12 @@
     <Filter Include="Файлы заголовков\HW19\Character">
       <UniqueIdentifier>{9e128baa-ea62-4866-b50f-20749edfbcd4}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Исходные файлы\HW19\Weapon">
+      <UniqueIdentifier>{44fc75b4-216b-4c75-8166-2f3ab79da660}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы заголовков\HW19\Weapon">
+      <UniqueIdentifier>{2d43174c-c5e0-4812-a765-a274a94539c1}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="R_D_CPP.cpp">
@@ -105,6 +111,9 @@
     <ClCompile Include="HW19.cpp">
       <Filter>Исходные файлы\HW19</Filter>
     </ClCompile>
+    <ClCompile Include="SwordHW19.cpp">
+      <Filter>Исходные файлы\HW19\Weapon</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="HW15.h">
@@ -148,6 +157,9 @@
     </ClInclude>
     <ClInclude Include="CharacterHW19.h">
       <Filter>Файлы заголовков\HW19\Character</Filter>
+    </ClInclude>
+    <ClInclude Include="SwordHW19.h">
+      <Filter>Файлы заголовков\HW19\Weapon</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

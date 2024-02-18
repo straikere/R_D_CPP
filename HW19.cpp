@@ -17,15 +17,15 @@ void Homework19() {
 
 	unique_ptr<DamageModifier> mdm = make_unique<MultiplicationDamageModifier>(1.5);
 
-	unique_ptr<Weapon> sword = make_unique<Sword>("BIG DESTRUCTOR",30, make_unique<MultiplicationDamageModifier>(2));
-	unique_ptr<Weapon> swordForThief = make_unique<Sword>("Little Sword",11,mdm);
-	unique_ptr<Weapon> dagger = make_unique<Dagger>("Fast penetrator", 15);
+	//unique_ptr<Weapon> sword = make_unique<Sword>("BIG DESTRUCTOR",30, make_unique<MultiplicationDamageModifier>(2));
+	//unique_ptr<Weapon> swordForThief = make_unique<Sword>("Little Sword",11,move(mdm));
+	//unique_ptr<Weapon> dagger = make_unique<Dagger>("Fast penetrator", 15);
 
 
 
-	warrior->SetWeapon(sword);
-	thief->SetWeapon(dagger);
-	shadow->SetWeapon(dagger);
+	//warrior->SetWeapon(sword);
+	//thief->SetWeapon(dagger);
+	//shadow->SetWeapon(dagger);
 	
 
 	std::vector<unique_ptr<CharacterHW19>> characterVec;
