@@ -10,7 +10,9 @@ class SwordHW19 :
 {
 public:
 
-    SwordHW19(string name = "Sword", float damage = 15, unique_ptr<DamageModifier> damageModifier = nullptr);
+    SwordHW19(string name);
+    SwordHW19(string name, float damage);
+    SwordHW19(string name, float damage, unique_ptr<DamageModifier>& damageModifier);
     ~SwordHW19() {};
 
     string GetName() override;

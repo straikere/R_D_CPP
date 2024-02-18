@@ -1,9 +1,10 @@
 #include <iostream>
 #include "CharacterHW19.h"
 #include "Dagger.h"
-#include "Sword.h"
+#include "SwordHW19.h"
 #include "AdditionDamageModifier.h"
 #include "MultiplicationDamageModifier.h"
+#include "ParityDamageModifier.h"
 #include <vector>
 
 using std::cout, std::move;
@@ -16,9 +17,12 @@ void Homework19() {
 	unique_ptr<CharacterHW19> empty = make_unique<CharacterHW19>("");
 
 	unique_ptr<DamageModifier> mdm = make_unique<MultiplicationDamageModifier>(1.5);
+	unique_ptr<DamageModifier> admAdd10 = make_unique<AdditionDamageModifier>(10);
+	unique_ptr<DamageModifier> admRemove11 = make_unique<AdditionDamageModifier>(-11);
+	unique_ptr<DamageModifier> pdm = make_unique<ParityDamageModifier>(3);
 
-	//unique_ptr<Weapon> sword = make_unique<Sword>("BIG DESTRUCTOR",30, make_unique<MultiplicationDamageModifier>(2));
-	//unique_ptr<Weapon> swordForThief = make_unique<Sword>("Little Sword",11,move(mdm));
+	unique_ptr<Weapon> sword = make_unique<SwordHW19>("BIG DESTRUCTOR",30, mdm);
+	unique_ptr<Weapon> swordForThief = make_unique<SwordHW19>("Little Sword",11, make_unique<MultiplicationDamageModifier>(4));
 	//unique_ptr<Weapon> dagger = make_unique<Dagger>("Fast penetrator", 15);
 
 
