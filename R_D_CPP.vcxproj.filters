@@ -114,6 +114,9 @@
     <ClCompile Include="SwordHW19.cpp">
       <Filter>Исходные файлы\HW19\Weapon</Filter>
     </ClCompile>
+    <ClCompile Include="UI_Weapon.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="HW15.h">
@@ -160,6 +163,9 @@
     </ClInclude>
     <ClInclude Include="SwordHW19.h">
       <Filter>Файлы заголовков\HW19\Weapon</Filter>
+    </ClInclude>
+    <ClInclude Include="UI_Weapon.h">
+      <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -145,6 +145,7 @@
     <ClCompile Include="R_D_CPP.cpp" />
     <ClCompile Include="Sword.cpp" />
     <ClCompile Include="SwordHW19.cpp" />
+    <ClCompile Include="UI_Weapon.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AdditionDamageModifier.h" />
@@ -161,6 +162,7 @@
     <ClInclude Include="ParityDamageModifier.h" />
     <ClInclude Include="Sword.h" />
     <ClInclude Include="SwordHW19.h" />
+    <ClInclude Include="UI_Weapon.h" />
     <ClInclude Include="Weapon.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

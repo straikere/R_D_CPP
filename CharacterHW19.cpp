@@ -19,17 +19,12 @@ unique_ptr<Weapon>& CharacterHW19::GetWeapon()
 	return weapon;
 }
 
-
-//
-
-
-
 float CharacterHW19::GetModifiedDamage() {
 	return weapon->GetDamage();
 }
 
-void CharacterHW19::SetDamageModifier(unique_ptr<DamageModifier>& _DmgModifier) {
-	DmgModifier = move(_DmgModifier);
+void CharacterHW19::SetDamageModifier(shared_ptr<DamageModifier>& _DmgModifier) {
+	DmgModifier = _DmgModifier;
 }
 
 void CharacterHW19::ApplyDamage(float Damage) {
@@ -38,9 +33,9 @@ void CharacterHW19::ApplyDamage(float Damage) {
 	}
 	else
 	{
-		if (DmgModifier)
+		if (shared_ptr<DamageModifier> sharedDmgMoidifier = DmgModifier.lock())
 		{
-			Health = GetHealth() - (DmgModifier->CalculateDamage(Damage));
+			Health = GetHealth() - (sharedDmgMoidifier->CalculateDamage(Damage));
 		}
 		else
 		{
@@ -61,3 +56,7 @@ float CharacterHW19::GetHealth() const {
 bool CharacterHW19::CharacterIsDead() const {
 	return IsDead;
 };
+
+string CharacterHW19::GetName() {
+	return Name;
+}
