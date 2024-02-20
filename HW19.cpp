@@ -34,6 +34,7 @@ void Homework19() {
 	shadow->SetWeapon(dagger);
 
 	// Просто повторення прикладу з лекції
+	cout << "---------UI---------\n";
 	shared_ptr<Weapon> sharedSword = std::make_shared<SwordHW19>();
 	UI_Weapon ui_weapon(sharedSword);
 	ui_weapon.PrintWeaponName();
