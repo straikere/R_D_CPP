@@ -12,6 +12,7 @@ void Homework16();
 void Homework17();
 void Homework18();
 void Homework19();
+void Homework20();
 
 int switch_on;
 
@@ -26,11 +27,12 @@ int main()
 			"Домашнє завдання 16 -- 4\n"
 			"Домашнє завдання 17 -- 5\n"
 			"Домашнє завдання 18 -- 6\n"
-			"Домашнє завдання 19 -- 7\n" << '\n';
+			"Домашнє завдання 19 -- 7\n"
+			"Домашнє завдання 20 -- 8\n" << '\n';
 
 	cout << "Виберіть домашє завдання: ";
-	cin >> switch_on;
-	//cout << '\n'; switch_on = 7;
+	//cin >> switch_on;
+	cout << '\n'; switch_on = 8;
 	switch (switch_on)
 	{
 	case 1 :
@@ -53,6 +55,9 @@ int main()
 		break;
 	case 7:
 		Homework19();
+		break;
+	case 8:
+		Homework20();
 		break;
 	default:
 		break;

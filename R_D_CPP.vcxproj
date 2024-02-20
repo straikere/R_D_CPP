@@ -140,6 +140,7 @@
     <ClCompile Include="HW17.cpp" />
     <ClCompile Include="HW18.cpp" />
     <ClCompile Include="HW19.cpp" />
+    <ClCompile Include="HW20.cpp" />
     <ClCompile Include="MultiplicationDamageModifier.cpp" />
     <ClCompile Include="ParityDamageModifier.cpp" />
     <ClCompile Include="R_D_CPP.cpp" />
