@@ -128,6 +128,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Achievements.cpp" />
     <ClCompile Include="AdditionDamageModifier.cpp" />
     <ClCompile Include="Building.cpp" />
     <ClCompile Include="Character.cpp" />
@@ -144,23 +145,29 @@
     <ClCompile Include="MultiplicationDamageModifier.cpp" />
     <ClCompile Include="ParityDamageModifier.cpp" />
     <ClCompile Include="R_D_CPP.cpp" />
+    <ClCompile Include="Subject.cpp" />
     <ClCompile Include="Sword.cpp" />
     <ClCompile Include="SwordHW19.cpp" />
     <ClCompile Include="UI_Weapon.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Achievements.h" />
     <ClInclude Include="AdditionDamageModifier.h" />
     <ClInclude Include="Building.h" />
     <ClInclude Include="Character.h" />
     <ClInclude Include="CharacterHW19.h" />
     <ClInclude Include="Dagger.h" />
     <ClInclude Include="DamageModifier.h" />
+    <ClInclude Include="Event.h" />
+    <ClInclude Include="EventData.h" />
     <ClInclude Include="HW13.h" />
     <ClInclude Include="HW14.h" />
     <ClInclude Include="HW15.h" />
     <ClInclude Include="HW16.h" />
     <ClInclude Include="MultiplicationDamageModifier.h" />
+    <ClInclude Include="Observer.h" />
     <ClInclude Include="ParityDamageModifier.h" />
+    <ClInclude Include="Subject.h" />
     <ClInclude Include="Sword.h" />
     <ClInclude Include="SwordHW19.h" />
     <ClInclude Include="UI_Weapon.h" />

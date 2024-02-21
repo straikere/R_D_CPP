@@ -31,8 +31,8 @@ int main()
 			"Домашнє завдання 20 -- 8\n" << '\n';
 
 	cout << "Виберіть домашє завдання: ";
-	//cin >> switch_on;
-	cout << '\n'; switch_on = 8;
+	cin >> switch_on;
+	//cout << '\n'; switch_on = 8;
 	switch (switch_on)
 	{
 	case 1 :

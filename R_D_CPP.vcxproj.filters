@@ -61,6 +61,12 @@
     <Filter Include="Файлы заголовков\HW19\Weapon">
       <UniqueIdentifier>{2d43174c-c5e0-4812-a765-a274a94539c1}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Исходные файлы\HW20">
+      <UniqueIdentifier>{71a8374a-984e-4ed4-91f6-5e403604e5d3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы заголовков\HW20">
+      <UniqueIdentifier>{12735e95-585c-4b8b-a708-2db0231a299c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="R_D_CPP.cpp">
@@ -114,8 +120,17 @@
     <ClCompile Include="SwordHW19.cpp">
       <Filter>Исходные файлы\HW19\Weapon</Filter>
     </ClCompile>
+    <ClCompile Include="HW20.cpp">
+      <Filter>Исходные файлы\HW20</Filter>
+    </ClCompile>
+    <ClCompile Include="Achievements.cpp">
+      <Filter>Исходные файлы\HW20</Filter>
+    </ClCompile>
+    <ClCompile Include="Subject.cpp">
+      <Filter>Исходные файлы\HW20</Filter>
+    </ClCompile>
     <ClCompile Include="UI_Weapon.cpp">
-      <Filter>Исходные файлы</Filter>
+      <Filter>Исходные файлы\HW19</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -164,8 +179,23 @@
     <ClInclude Include="SwordHW19.h">
       <Filter>Файлы заголовков\HW19\Weapon</Filter>
     </ClInclude>
+    <ClInclude Include="Observer.h">
+      <Filter>Файлы заголовков\HW20</Filter>
+    </ClInclude>
+    <ClInclude Include="Achievements.h">
+      <Filter>Файлы заголовков\HW20</Filter>
+    </ClInclude>
+    <ClInclude Include="Event.h">
+      <Filter>Файлы заголовков\HW20</Filter>
+    </ClInclude>
+    <ClInclude Include="EventData.h">
+      <Filter>Файлы заголовков\HW20</Filter>
+    </ClInclude>
+    <ClInclude Include="Subject.h">
+      <Filter>Файлы заголовков\HW20</Filter>
+    </ClInclude>
     <ClInclude Include="UI_Weapon.h">
-      <Filter>Файлы заголовков</Filter>
+      <Filter>Файлы заголовков\HW19</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
